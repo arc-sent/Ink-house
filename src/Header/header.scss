@@ -1,0 +1,284 @@
+@use '../sass/sassComponents.scss' as *;
+
+.header {
+    background-color: #E1EDE6;
+    position: fixed;
+    padding: $paddingComponentsParent;
+    font-family: $fontFamily;
+    height: 80px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.burger {
+    display: none;
+}
+
+.wrapperHeaderContent {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftContentHeader {
+    display: flex;
+    align-items: center;
+
+    >p {
+        margin: 0px;
+        margin-left: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #598D66;
+    }
+}
+
+.rigthContentHeader {
+    display: flex;
+    align-items: center;
+
+    a {
+        font-weight: 500;
+        font-size: 18px;
+        margin-right: 60px;
+        color: #2C2D35;
+        text-decoration: none;
+    }
+}
+
+.headerCard {
+    display: flex;
+    color: #2C2D35;
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+
+    >img {
+        height: 200px;
+        width: 200px;
+    }
+
+    >.close {
+        color: #c14c56;
+        font-size: 25px;
+        cursor: pointer;
+    }
+}
+
+.infoHeaderCard {
+    text-align: center;
+    width: 80%;
+
+    >h1 {
+        margin: 10px 0px;
+        font-weight: 600;
+    }
+
+    >.artistCard {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    >.priceCard {
+        margin-top: 10px;
+        color: #598D66;
+        font-size: 16px;
+    }
+}
+
+.Modal {
+    font-family: $fontFamily;
+}
+
+.custom-ok-button {
+    background-color: #376B44 !important;
+    color: #fff;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: #284e32 !important;
+    }
+}
+
+.wrapperInModal {
+    max-height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    >.priceFooter {
+        font-size: 16px;
+        font-weight: 500;
+
+        >span {
+            color: #376B44;
+        }
+    }
+}
+
+@include respond-to('tablet1024') {
+    .header {
+        padding: 0px 40px;
+    }
+}
+
+@include respond-to('tablet768') {
+    .header {
+        height: 140px;
+        padding: 0px 33px;
+
+        &.hide {
+            height: 80px;
+        }
+    }
+
+    .wrapperHeaderContent {
+        flex-direction: column;
+    }
+
+    .leftContentHeader {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        border-bottom: 1px solid #C3D1C6;
+    }
+
+    .leftContentHeader {
+        transition: 0.3s;
+
+        &.hide {
+            display: none;
+        }
+    }
+}
+
+@include respond-to('mobile480') {
+    .header {
+        height: 130px;
+        padding: 0px 15px;
+
+        &.hide {
+            height: 80px;
+        }
+
+        &.active {
+            height: 265px;
+        }
+
+        &.hideActive {
+            height: 325px;
+        }
+    }
+
+    .nav {
+        display: none;
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+    }
+
+    .wrapperHeaderContent {
+        display: block;
+    }
+
+    .leftContentHeader {
+        background-color: #fff;
+        width: 106%;
+        margin: -7px -13px;
+
+        >p {
+            font-size: 20px;
+        }
+    }
+
+    .burger {
+        display: block;
+        position: relative;
+        width: 25px;
+        height: 20px;
+
+        &::after {
+            top: 17px;
+            content: '';
+            background-color: #4C5866;
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            left: 0;
+            transition: all 0.3s;
+        }
+
+        &::before {
+            top: 3px;
+            content: '';
+            position: absolute;
+            background-color: #4C5866;
+            width: 100%;
+            height: 3px;
+            left: 0;
+            transition: all 0.3s;
+        }
+
+        span {
+            content: '';
+            background-color: #4C5866;
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            left: 0;
+            transition: all 0.3s;
+            top: 10px;
+        }
+
+        &.active {
+            &::before {
+                top: 9px;
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                top: 9px;
+                transform: rotate(-45deg);
+            }
+
+            span {
+                transform: scale(0);
+            }
+        }
+    }
+
+    .rigthContentHeader {
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 32px;
+        
+        >img {
+            margin-right: 15px;
+
+            &.active {
+                display: none;
+            }
+        }
+
+        &.active {
+            display: block;
+        }
+
+        &.hide {
+            margin-top: 26px;
+        }
+
+        a {
+            margin: 0px;
+        }
+    }
+}

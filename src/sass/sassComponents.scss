@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+$paddingComponentsParent: 0px 150px;
+$fontFamily: "Raleway", sans-serif;
+
+@mixin respond-to($media) {
+    @if $media == 'tablet1024' {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    } @else if $media == 'tablet768' {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $media == 'mobile480'{
+        @media (max-width: 480px) {
+            @content;
+        }
+    }
+}

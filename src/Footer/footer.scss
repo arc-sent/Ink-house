@@ -1,0 +1,151 @@
+@use '../sass/sassComponents.scss' as *;
+
+.CustomFooter {
+    color: #000000;
+    background-color: #E1EDE6;
+    padding: 23px 150px;
+    font-family: $fontFamily;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #598D66;
+}
+
+.wrappGapAndIcon {
+    display: flex;
+}
+
+.phone {
+    margin-top: 35px;
+
+    >a {
+        font-size: 20px;
+        font-weight: 500;
+        color: #2C2D35;
+        text-decoration: none;
+        margin: 0;
+    }
+
+    >p {
+        font-size: 18px;
+        font-weight: 500;
+        color: #86928B;
+        margin: 0;
+        margin-top: 8px;
+    }
+}
+
+.gap {
+    display: flex;
+    flex-direction: column;
+
+    >h1 {
+        font-size: 20px;
+        font-weight: 500;
+        color: #2C2D35;
+    }
+
+    >a {
+        font-size: 18px;
+        font-weight: 500;
+        color: #86928B;
+        margin-bottom: 7px;
+    }
+}
+
+
+.gapWrapper {
+    margin-right: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.wrapperCustomFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.IconsWrapper {
+    p {
+        font-size: 12px;
+        font-weight: 500;
+        color: #86928B;
+        margin: 0;
+        margin-bottom: 6px;
+
+    }
+}
+
+.icons {
+    margin-bottom: 10px;
+
+    img {
+        margin-right: 30px;
+    }
+}
+
+@include respond-to('tablet1024') {
+    .CustomFooter {
+        padding: 23px 40px;
+    }
+
+    .wrapperCustomFooter {
+        flex-direction: column;
+    }
+
+    .logoAndPhone {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .wrappGapAndIcon {
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+}
+
+@include respond-to('tablet768') {
+    .wrappGapAndIcon {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gapWrapper {
+        margin: 0;
+    }
+
+    .IconsWrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 16px;
+        border-top: 1px solid #C3D1C6;
+        margin-top: 20px;
+    }
+
+    .textWrapper {
+        display: flex;
+    }
+}
+
+@include respond-to('mobile480') {
+    .CustomFooter {
+        padding: 20px 15px;
+    }
+
+    .logoAndPhone {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gapWrapper{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
